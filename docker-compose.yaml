@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+    test-service:
+        restart: always
+        build:
+            context: .
+            dockerfile: Dockerfile
+            args:
+                cron: "* * * * *"
+                tz: "Asia/Bangkok"
+                command: "php main.php"
+        environment:
+            - TEST_VAR=Test Value
